@@ -1,0 +1,673 @@
+/*
+Theme Name: SozialLëtz
+Author: OLICAS asbl
+Description: Thème média citoyen dynamique pour SozialLëtz.lu
+Version: 1.1.0
+Text Domain: sozialletz
+*/
+
+:root {
+    --sl-teal: #0b5d69;        /* Sarcelle principal */
+    --sl-teal-bright: #128293; /* Sarcelle dynamique au survol */
+    --sl-navy: #1e2530;        /* Fond Studio sombre moderne */
+    --sl-cream: #f7f4ed;       /* Fond crème doux */
+    --sl-card-beige: #f0e9d8;  /* Carte beige */
+    --sl-card-mint: #e0ede5;   /* Carte menthe */
+    --sl-accent: #e76f51;      /* Touche corail dynamique (public jeune) */
+    --sl-text: #1a1a1a;
+    --sl-border: #e2dcd0;
+}
+
+body {
+    background-color: #fcfbf9;
+    color: var(--sl-text);
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+/* --- TAILLES DES ICÔNES (Correctif anti-étirement) --- */
+.sl-icon-img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.rubrique-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.85rem;
+}
+
+.rubrique-item:hover .sl-icon-img {
+    transform: scale(1.12) rotate(-3deg);
+}
+
+/* --- HEADER DYNAMIQUE --- */
+.site-header {
+    background-color: #ffffff;
+    padding: 1.2rem 0 0 0;
+    border-bottom: 1px solid var(--sl-border);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+}
+
+.brand-title {
+    color: var(--sl-teal);
+    font-weight: 900;
+    font-size: 2.7rem;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin: 0;
+}
+
+.brand-tagline {
+    font-size: 0.88rem;
+    color: #555;
+    margin-top: 0.35rem;
+    font-weight: 500;
+}
+
+.olicas-mention {
+    font-size: 0.75rem;
+    color: #777;
+    font-weight: 600;
+}
+
+.main-nav {
+    background-color: #ffffff;
+    border-top: 1px solid var(--sl-border);
+    margin-top: 1rem;
+    padding: 0.4rem 0;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.main-nav a {
+    color: var(--sl-text);
+    font-weight: 800;
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: var(--sl-teal);
+    background-color: var(--sl-cream);
+}
+
+/* --- CARTES STYLE "BENTO" & MICRO-INTERACTIONS --- */
+.sl-box {
+    border-radius: 16px;
+    padding: 1.4rem;
+    margin-bottom: 1.4rem;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.sl-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(11, 93, 105, 0.08);
+}
+
+.sl-box-cream { background-color: var(--sl-cream); }
+.sl-box-beige { background-color: var(--sl-card-beige); }
+.sl-box-mint  { background-color: var(--sl-card-mint); }
+
+.sl-box-navy {
+    background: linear-gradient(135deg, #1e2530 0%, #2b3849 100%);
+    color: #ffffff;
+}
+
+.sl-section-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+}
+
+/* --- TITRES DE RUBRIQUES STYLISÉS (Signature SozialLëtz) --- */
+.sl-eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    margin-bottom: 0.2rem;
+}
+
+.sl-rubrique-header {
+    border-bottom: 2px solid var(--sl-teal);
+    padding-bottom: 0.65rem;
+    margin-bottom: 1rem;
+}
+
+.sl-tag-pill {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.55rem;
+    border-radius: 50px;
+    margin-bottom: 0.3rem;
+}
+
+.sl-item-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.sl-item-title a {
+    color: var(--sl-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.sl-item-title a:hover {
+    color: var(--sl-teal);
+}
+
+.sl-divider {
+    margin: 0.75rem 0;
+    border: 0;
+    border-top: 1px solid var(--sl-border);
+}
+
+/* --- BADGES & BOUTONS MODERNES --- */
+.label {
+    border-radius: 50px !important;
+    padding: 0.35rem 0.8rem !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.button {
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s ease, background-color 0.2s ease !important;
+}
+
+.button:hover {
+    transform: scale(1.03);
+    background-color: var(--sl-teal-bright) !important;
+}
+
+/* --- RUBRIQUES --- */
+.rubrique-title {
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+    color: var(--sl-teal);
+}
+
+.rubrique-list {
+    list-style: none;
+    margin: 0.8rem 0 0 0;
+    font-size: 0.85rem;
+}
+
+.rubrique-list li {
+    margin-bottom: 0.6rem;
+    line-height: 1.35;
+}
+
+/* --- STUDIO MULTIMÉDIA SLIM & ESPACÉ --- */
+.studio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 0.7rem;
+    margin-bottom: 1.1rem;
+}
+
+.studio-box audio,
+.studio-box video {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+}
+
+.studio-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.85rem;
+    border-radius: 12px;
+    margin-bottom: 0.85rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.studio-card:hover {
+    background: rgba(255, 255, 255, 0.11);
+    transform: translateY(-2px);
+}
+
+.studio-card h3 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0.45rem 0 0.4rem 0;
+    color: #ffffff;
+}
+
+.studio-card audio {
+    height: 36px;
+}
+
+.studio-card video {
+    max-height: 92px;
+    object-fit: cover;
+}
+
+/* --- SOUS-MENUS DÉROULANTS FOUNDATION --- */
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+    border-color: var(--sl-teal) transparent transparent;
+}
+
+.is-dropdown-submenu {
+    background-color: #ffffff;
+    border: 1px solid var(--sl-border);
+    border-radius: 12px;
+    padding: 0.4rem;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+    min-width: 250px;
+    z-index: 999;
+}
+
+.is-dropdown-submenu a {
+    text-transform: none !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    padding: 0.65rem 0.9rem !important;
+    border-radius: 8px;
+    border-bottom: none;
+}
+
+.is-dropdown-submenu a:hover {
+    background-color: var(--sl-cream);
+    color: var(--sl-teal);
+}
+
+/* --- CORRECTIF AFFICHAGE SOUS-MENUS AU SURVOL / CLIC --- */
+.main-nav .menu li {
+    position: relative;
+}
+
+.main-nav .sub-menu,
+.main-nav .is-dropdown-submenu {
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid var(--sl-border);
+    border-radius: 12px;
+    padding: 0.4rem;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+    min-width: 240px;
+    z-index: 9999;
+    list-style: none;
+    margin: 0;
+}
+
+.main-nav .menu > li:hover > .sub-menu,
+.main-nav .menu > li:hover > .is-dropdown-submenu,
+.main-nav .menu > li:focus-within > .sub-menu,
+.main-nav .menu > li.is-active > .sub-menu {
+    display: block !important;
+}
+
+.main-nav .sub-menu .sub-menu,
+.main-nav .is-dropdown-submenu .is-dropdown-submenu {
+    top: 0;
+    left: 100%;
+    margin-left: 4px;
+}
+
+.main-nav .sub-menu li:hover > .sub-menu,
+.main-nav .is-dropdown-submenu li:hover > .is-dropdown-submenu,
+.main-nav .sub-menu li:focus-within > .sub-menu {
+    display: block !important;
+}
+
+.main-nav .sub-menu a,
+.main-nav .is-dropdown-submenu a {
+    display: block;
+    text-transform: none !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    padding: 0.6rem 0.9rem !important;
+    border-radius: 8px;
+    color: var(--sl-text);
+}
+
+.main-nav .sub-menu a:hover,
+.main-nav .is-dropdown-submenu a:hover {
+    background-color: var(--sl-cream);
+    color: var(--sl-teal);
+}
+
+.main-nav .menu > li:nth-last-child(-n+2) .sub-menu .sub-menu,
+.main-nav .menu > li:nth-last-child(-n+2) .is-dropdown-submenu .is-dropdown-submenu {
+    left: auto;
+    right: 100%;
+    margin-right: 4px;
+}
+
+/* --- BARRE MOBILE (Cachée sur ordinateur, visible sur téléphone) --- */
+.sl-mobile-bar {
+    display: none;
+}
+
+/* --- RESPONSIVE MOBILE (< 640px) : COMPACT, FLUIDE & CENTRÉ --- */
+@media screen and (max-width: 639px) {
+    .site-header {
+        padding: 0.75rem 0 0 0;
+        margin-bottom: 1rem;
+    }
+
+    .custom-logo-link,
+    .site-header .cell:first-child a {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100%;
+    }
+
+    .custom-logo,
+    .site-header img {
+        max-height: 68px !important;
+        width: auto !important;
+        margin: 0 auto !important;
+    }
+
+    .brand-title {
+        font-size: 1.75rem;
+        margin-top: 0.2rem;
+    }
+
+    .brand-tagline {
+        font-size: 0.78rem;
+        line-height: 1.35;
+        margin-top: 0.25rem;
+        padding: 0 0.5rem;
+    }
+
+    .sl-social-header {
+        margin-bottom: 0.35rem !important;
+    }
+
+    .sl-social-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .site-header .button.small {
+        padding: 0.45rem 1rem !important;
+        font-size: 0.75rem !important;
+    }
+
+    .main-nav {
+        margin-top: 0.65rem;
+        padding: 0.35rem 0;
+    }
+
+    .sl-mobile-bar {
+        display: flex;
+        justify-content: center;
+        padding: 0.2rem 0;
+    }
+
+    #sl-mobile-toggle {
+        background-color: var(--sl-teal);
+        color: #ffffff;
+        border: none;
+        border-radius: 50px;
+        padding: 0.45rem 1.3rem;
+        font-weight: 800;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    #sl-mobile-toggle:active {
+        transform: scale(0.96);
+    }
+
+    #sl-main-menu {
+        display: none;
+        padding-top: 0.4rem;
+    }
+    #sl-main-menu.is-open {
+        display: block;
+    }
+
+    .main-nav ul.menu {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .main-nav .menu > li {
+        border-bottom: 1px solid var(--sl-border);
+    }
+
+    .main-nav .menu > li > a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.65rem 0.4rem;
+        font-size: 0.8rem;
+    }
+
+    .main-nav .sub-menu,
+    .main-nav .is-dropdown-submenu,
+    .main-nav .sub-menu .sub-menu,
+    .main-nav .is-dropdown-submenu .is-dropdown-submenu {
+        position: static !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-left: 3px solid var(--sl-teal) !important;
+        border-radius: 0 !important;
+        background-color: var(--sl-cream) !important;
+        margin: 0 0 0.4rem 0.6rem !important;
+        padding: 0.15rem 0 0.15rem 0.5rem !important;
+        min-width: 100% !important;
+    }
+
+    .main-nav li.mobile-open > .sub-menu,
+    .main-nav li.mobile-open > .is-dropdown-submenu {
+        display: block !important;
+    }
+
+    .sl-box {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 14px;
+    }
+
+    .sl-section-title {
+        font-size: 1.1rem !important;
+    }
+
+    .sl-box .cell.small-4,
+    .sl-box .cell.small-8 {
+        width: 100% !important;
+        margin-bottom: 0.6rem;
+    }
+}
+
+/* --- ICÔNES RÉSEAUX SOCIAUX DU HEADER --- */
+.sl-social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--sl-cream);
+    border: 1px solid var(--sl-border);
+    color: var(--sl-teal);
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.sl-social-icon:hover {
+    background-color: var(--sl-teal);
+    border-color: var(--sl-teal);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* --- FOOTER CENTRÉ, COMPACT & VIVANT --- */
+.site-footer {
+    background: linear-gradient(180deg, #1b222c 0%, #141921 100%);
+    color: #d0d7de;
+    padding: 2rem 0 1.2rem 0;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    border-top: 4px solid var(--sl-teal);
+}
+
+.footer-col {
+    margin-bottom: 1.3rem;
+}
+
+.footer-brand {
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+}
+
+.footer-eyebrow {
+    display: inline-block;
+    color: #8ecae6;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+}
+
+.footer-desc {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: #b8c2cc;
+    max-width: 300px;
+    margin: 0 auto 0.65rem auto;
+}
+
+.footer-obs-pill {
+    display: inline-block;
+    background-color: rgba(142, 202, 230, 0.12);
+    border: 1px solid rgba(142, 202, 230, 0.35);
+    color: #8ecae6;
+    font-size: 0.73rem;
+    font-weight: 700;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.footer-obs-pill:hover {
+    background-color: var(--sl-teal);
+    border-color: var(--sl-teal);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.3rem;
+}
+
+.footer-links a {
+    color: #d0d7de;
+    font-size: 0.78rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #8ecae6;
+    text-decoration: underline;
+}
+
+.footer-newsletter {
+    display: flex;
+    max-width: 310px;
+    margin: 0 auto 0.4rem auto;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 50px;
+    padding: 3px;
+}
+
+.footer-newsletter input {
+    flex: 1;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #ffffff !important;
+    font-size: 0.76rem !important;
+    height: 30px !important;
+    margin: 0 !important;
+    padding: 0 0.8rem !important;
+}
+
+.footer-newsletter button {
+    background-color: var(--sl-teal);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 0 0.9rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.footer-newsletter button:hover {
+    background-color: var(--sl-accent);
+}
+
+.footer-rgpd {
+    display: block;
+    font-size: 0.68rem;
+    color: #8b949e;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 0.9rem;
+    margin-top: 0.5rem;
+    font-size: 0.72rem;
+    color: #8b949e;
+}
