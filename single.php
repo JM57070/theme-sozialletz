@@ -1,54 +1,63 @@
 <?php get_header(); ?>
 
-<main class="grid-container" style="padding-top: 1.5rem; padding-bottom: 3rem;">
-    <?php while ( have_posts() ) : the_post(); ?>
-        
-        <article class="grid-x grid-margin-x align-center">
-            <div class="cell large-9">
-                
-                <!-- En-tête de l'article -->
-                <header class="sl-box sl-box-cream" style="border-left: 5px solid var(--sl-teal);">
-                    <div style="margin-bottom: 0.6rem;">
-                        <?php 
-                        $cats = get_the_category();
-                        if ( ! empty( $cats ) ) : ?>
-                            <a href="<?php echo esc_url( get_category_link( $cats[0]->term_id ) ); ?>" class="label" style="background: var(--sl-teal); text-decoration: none;">
-                                <?php echo esc_html( $cats[0]->name ); ?>
-                            </a>
-                        <?php endif; ?>
+<main class="grid-container" style="padding-top: 1rem; padding-bottom: 2.5rem;">
+    <div class="grid-x grid-margin-x align-center">
+        <div class="cell large-9">
+            <?php while ( have_posts() ) : the_post(); ?>
+                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    
+                    <!-- En-tête de l'article -->
+                    <header class="sl-box sl-box-cream" style="border-left: 5px solid var(--sl-navy);">
+                        
+                        <div class="sl-single-cat-bar">
+                            <?php if ( in_category( 'le-monde-du-directeur' ) ) : ?>
+                                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/pexelsSilouhette.jpg' ); ?>" alt="Directeur de la publication" class="sl-director-avatar">
+                            <?php endif; ?>
+
+                            <?php
+                            $categories = get_the_category();
+                            if ( ! empty( $categories ) ) :
+                                $cat = $categories[0];
+                            ?>
+                                <a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" class="sl-single-cat-badge">
+                                    <?php echo esc_html( $cat->name ); ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+
+                        <h1 class="brand-title" style="font-size: 2rem; margin: 0.65rem 0; line-height: 1.2;">
+                            <?php the_title(); ?>
+                        </h1>
+
+                        <div style="font-size: 0.85rem; color: #444;">
+                            <span>Par : <strong><?php the_author(); ?></strong></span> &bull;
+                            <span>Publié le : <?php echo get_the_date(); ?></span>
+                        </div>
+                    </header>
+
+                    <!-- Image à la une -->
+                    <?php if ( has_post_thumbnail() ) : ?>
+                        <div style="margin-bottom: 1.5rem; text-align: center;">
+                            <?php the_post_thumbnail( 'large', array( 'style' => 'border-radius: 12px; max-height: 450px; object-fit: cover; width: 100%;' ) ); ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Contenu de l'article -->
+                    <div class="sl-box" style="background: #ffffff; border: 1px solid var(--sl-border); font-size: 1.05rem; line-height: 1.75;">
+                        <?php the_content(); ?>
                     </div>
 
-                    <h1 class="brand-title" style="font-size: 2rem; line-height: 1.2; margin-bottom: 0.8rem;">
-                        <?php the_title(); ?>
-                    </h1>
+                    <!-- Encadré Responsabilité & Droit de réponse -->
+                    <footer class="sl-box sl-box-beige" style="font-size: 0.82rem; margin-top: 1.5rem;">
+                        <strong>Mention éditoriale <span class="sl-title-navy">SozialLëtz</span><span class="sl-title-lu">.lu</span> :</strong>
+                        Cet article a été vérifié par la rédaction d'<strong>OLICAS asbl</strong> (R.C.S. Luxembourg F15947).
+                        Toute personne citée dispose d'un droit de réponse conformément à la législation luxembourgeoise sur la liberté d'expression dans les médias.
+                    </footer>
 
-                    <div style="font-size: 0.85rem; color: #555; display: flex; flex-wrap: wrap; gap: 15px;">
-                        <span><strong>Par :</strong> <?php the_author(); ?></span>
-                        <span><strong>Publié le :</strong> <?php echo get_the_date(); ?></span>
-                    </div>
-                </header>
-
-                <!-- Image à la une -->
-                <?php if ( has_post_thumbnail() ) : ?>
-                    <div style="margin-bottom: 1.5rem;">
-                        <?php the_post_thumbnail( 'large', array( 'style' => 'width:100%; max-height:420px; object-fit:cover; border-radius:16px;' ) ); ?>
-                    </div>
-                <?php endif; ?>
-
-                <!-- Corps de l'article -->
-                <div class="sl-box" style="background: #ffffff; border: 1px solid var(--sl-border); font-size: 1.05rem; line-height: 1.75; padding: 2rem;">
-                    <?php the_content(); ?>
-                </div>
-
-                <!-- Encart légal Droit de réponse (Cahier des charges Luxembourg) -->
-                <div class="sl-box sl-box-beige" style="font-size: 0.8rem; color: #444;">
-                    <strong>Mentions éditoriales :</strong> Article publié sous la responsabilité de la rédaction de <em>SozialLëtz.lu</em> (OLICAS asbl — R.C.S. F15947). Pour toute demande de droit de réponse, contactez <a href="mailto:direction@olicas-luxembourg.eu" style="font-weight:700; color:var(--sl-teal);">direction@olicas-luxembourg.eu</a>.
-                </div>
-
-            </div>
-        </article>
-
-    <?php endwhile; ?>
+                </article>
+            <?php endwhile; ?>
+        </div>
+    </div>
 </main>
 
 <?php get_footer(); ?>
