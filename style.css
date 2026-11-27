@@ -1526,7 +1526,7 @@ h1, h2, h3, h4, .brand-title, .sl-section-title, .rubrique-title, .sl-cat-title 
 }
 
 /* =========================================================
-   FOOTER CENTRÉ, COMPACT & VIVANT
+   FOOTER CENTRÉ, COMPACT & SANS LIGNES PARASITES
 ========================================================= */
 .site-footer {
     background: linear-gradient(180deg, #162632 0%, #0f1a23 100%);
@@ -1534,12 +1534,12 @@ h1, h2, h3, h4, .brand-title, .sl-section-title, .rubrique-title, .sl-cat-title 
     padding: 2rem 0 1.2rem 0;
     margin-top: 2rem;
     font-size: 0.82rem;
-    border-top: 4px solid var(--sl-teal-lu) !important;
+    border-top: none !important;
 }
 
 .sl-footer-partners {
-    border-bottom: 1px solid rgba(241, 216, 173, 0.18);
-    padding-bottom: 1.4rem;
+    border-bottom: none !important;
+    padding-bottom: 0.5rem;
 }
 
 .sl-footer-publisher {
@@ -1547,7 +1547,55 @@ h1, h2, h3, h4, .brand-title, .sl-section-title, .rubrique-title, .sl-cat-title 
     flex-direction: column;
     align-items: center;
     gap: 0.45rem;
-    margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.sl-footer-menu-bar {
+    border-top: none !important;
+    border-bottom: none !important;
+    padding: 0.6rem 0;
+    margin-bottom: 0.4rem;
+}
+
+.sl-footer-nav-pills {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.55rem !important;
+}
+
+.sl-footer-nav-pills > li {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+}
+
+.sl-footer-nav-pills > li > a {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--sl-cream);
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(94, 234, 212, 0.3);
+    border-radius: 50px;
+    padding: 0.35rem 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.sl-footer-nav-pills > li > a:hover {
+    background-color: var(--sl-teal-lu);
+    border-color: var(--sl-teal-lu);
+    color: #ffffff;
+    transform: translateY(-2px);
 }
 
 .footer-col { margin-bottom: 1.3rem; }
@@ -1616,15 +1664,9 @@ h1, h2, h3, h4, .brand-title, .sl-section-title, .rubrique-title, .sl-cat-title 
 }
 .footer-newsletter button:hover { background-color: var(--sl-teal-dark) !important; }
 .footer-rgpd { display: block; font-size: 0.7rem; color: #9aa5b1; }
-.footer-bottom { border-top: 1px solid rgba(241, 216, 173, 0.15); padding-top: 0.9rem; margin-top: 0.5rem; font-size: 0.74rem; color: #9aa5b1; }
+.footer-bottom { border-top: none !important; padding-top: 0.9rem; margin-top: 0.5rem; font-size: 0.74rem; color: #9aa5b1; }
 
-@media (prefers-reduced-motion: reduce) {
-    .sl-rdv-panel.is-animating,
-    .sl-breaking-items,
-    .sl-welcome-ticker {
-        animation: none !important;
-    }
-}
+
 /* Icône maison accueil dans la barre de menu */
 .sl-nav-with-home {
     display: flex;
@@ -1652,4 +1694,421 @@ h1, h2, h3, h4, .brand-title, .sl-section-title, .rubrique-title, .sl-cat-title 
 .sl-home-icon-link:hover {
     background-color: var(--sl-teal-lu) !important;
     color: #ffffff !important;
+}
+
+/* Barre menu horizontal stylisé dans le footer */
+.sl-footer-menu-bar {
+    border-top: 1px solid rgba(241, 216, 173, 0.16);
+    border-bottom: 1px solid rgba(241, 216, 173, 0.16);
+    padding: 0.85rem 0;
+    margin-bottom: 0.4rem;
+}
+
+.sl-footer-nav-pills {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.55rem !important;
+}
+
+.sl-footer-nav-pills > li {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+}
+
+.sl-footer-nav-pills > li > a {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--sl-cream);
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(94, 234, 212, 0.3);
+    border-radius: 50px;
+    padding: 0.35rem 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.sl-footer-nav-pills > li > a:hover {
+    background-color: var(--sl-teal-lu);
+    border-color: var(--sl-teal-lu);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   PAGE LE JOURNAL : LISIBILITÉ, MOT DU DIRECTEUR & RESPONSIVE
+========================================================= */
+.sl-journal-main-title {
+    font-size: 1.95rem;
+}
+
+.sl-director-quote {
+    margin: 0.35rem 0 0.85rem 0;
+    padding: 0.75rem 1rem;
+    background-color: #ffffff;
+    border-left: 4px solid var(--sl-teal-lu);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.96rem;
+    font-style: italic;
+    line-height: 1.48;
+    color: var(--sl-navy);
+}
+
+.sl-director-signature {
+    border-top: 1px dashed var(--sl-border);
+    padding-top: 0.65rem;
+    margin-top: 0.5rem;
+    font-size: 0.84rem;
+    color: var(--sl-navy-soft);
+}
+
+.sl-contact-section {
+    background-color: var(--sl-cream) !important;
+    border: 1px solid var(--sl-border) !important;
+    border-top: 5px solid var(--sl-teal-lu) !important;
+    border-radius: 14px;
+    padding: 1.35rem;
+    box-shadow: 0 8px 20px rgba(22, 38, 50, 0.06);
+}
+
+.sl-contact-header {
+    text-align: center;
+    border-bottom: 1px solid var(--sl-border);
+    padding-bottom: 0.85rem;
+    margin-bottom: 1.15rem;
+}
+
+.sl-contact-heading {
+    color: var(--sl-navy) !important;
+    font-size: 1.45rem;
+}
+
+.sl-contact-subtext {
+    color: var(--sl-navy-soft);
+    font-size: 0.9rem;
+    line-height: 1.48;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.sl-contact-card-left {
+    background-color: #ffffff;
+    border: 1px solid var(--sl-border);
+    border-left: 4px solid var(--sl-teal-lu);
+    border-radius: 10px;
+    padding: 1.15rem;
+}
+
+.sl-contact-card-right {
+    background-color: #ffffff;
+    border: 1px solid var(--sl-border);
+    border-left: 4px solid var(--sl-navy);
+    border-radius: 10px;
+    padding: 1.15rem;
+}
+
+.sl-contact-details {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.85rem;
+    color: var(--sl-navy);
+}
+
+.sl-contact-details li {
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(22, 38, 50, 0.1);
+    line-height: 1.4;
+}
+
+.sl-contact-details a {
+    color: var(--sl-teal-dark);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.sl-citizen-form label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--sl-navy);
+    margin-bottom: 0.65rem;
+    display: block;
+}
+
+.sl-citizen-form input,
+.sl-citizen-form select,
+.sl-citizen-form textarea {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    border: 1px solid var(--sl-border);
+    background-color: #faf8f2;
+    color: var(--sl-navy);
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+    box-shadow: none;
+}
+
+.sl-citizen-form input:focus,
+.sl-citizen-form select:focus,
+.sl-citizen-form textarea:focus {
+    border-color: var(--sl-teal-lu);
+    background-color: #ffffff;
+}
+
+@media screen and (max-width: 1023px) {
+    .sl-mobile-cell-gap {
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 639px) {
+    .sl-journal-main-title {
+        font-size: 1.55rem;
+    }
+    .sl-contact-section {
+        padding: 1rem 0.85rem;
+    }
+    .sl-contact-heading {
+        font-size: 1.2rem;
+    }
+    .sl-mobile-card-gap {
+        margin-bottom: 0.65rem;
+    }
+    .sl-btn-submit-article {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* =========================================================
+   EXTRAITS "LIRE LA SUITE" / "SUITE" — PAGE LE JOURNAL
+========================================================= */
+.sl-bio-more {
+    margin-top: 0.25rem;
+}
+
+.sl-bio-more > summary {
+    list-style: none;
+    display: inline-block;
+}
+
+.sl-bio-more > summary::-webkit-details-marker {
+    display: none;
+}
+
+.sl-bio-more[open] > summary {
+    margin-bottom: 0.5rem;
+}
+
+.sl-bio-expanded {
+    background-color: #ffffff;
+    border-left: 3px solid var(--sl-teal-lu);
+    border-radius: 0 8px 8px 0;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.84rem;
+    line-height: 1.46;
+    color: var(--sl-navy);
+}
+
+.sl-inline-more {
+    color: var(--sl-teal-dark) !important;
+    font-weight: 700 !important;
+    text-decoration: underline !important;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.sl-inline-more:hover {
+    color: var(--sl-navy) !important;
+}
+
+/* =========================================================
+   PAGE LE JOURNAL : ILLUSTRATIONS, SYMÉTRIE & DYNAMISME
+========================================================= */
+.sl-journal-hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.sl-journal-hero-img {
+    width: 100%;
+    height: 118px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--sl-border);
+    display: block;
+}
+
+.sl-journal-hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.sl-pill-badge {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background-color: #ffffff;
+    color: var(--sl-teal-dark);
+    border: 1px solid var(--sl-teal-lu);
+    border-radius: 50px;
+    padding: 0.2rem 0.65rem;
+}
+
+.sl-director-header,
+.sl-card-head-illus {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.65rem;
+}
+
+.sl-director-portrait {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--sl-teal-lu);
+    background-color: #ffffff;
+    flex-shrink: 0;
+}
+
+.sl-card-mini-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid var(--sl-border);
+    flex-shrink: 0;
+}
+
+.sl-journal-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sl-journal-list > li {
+    font-size: 0.85rem;
+    line-height: 1.46;
+    color: var(--sl-navy);
+    padding: 0.42rem 0;
+    border-top: 1px solid rgba(22, 38, 50, 0.1);
+}
+
+.sl-journal-list > li:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.sl-expandable-content.is-open {
+    animation: slExpandFade 0.28s ease;
+}
+
+@keyframes slExpandFade {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: none; }
+}
+
+.sl-box-footer-action {
+    margin-top: 0.85rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed rgba(22, 38, 50, 0.16);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sl-suite-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: var(--sl-teal-lu);
+    border: none;
+    border-radius: 50px;
+    padding: 0.35rem 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.sl-suite-btn:hover {
+    background-color: var(--sl-navy);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.sl-tabs-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 0.65rem;
+    border-bottom: 1px solid var(--sl-border);
+    padding-bottom: 0.55rem;
+}
+
+.sl-tab-btn {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.86rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    border: 1px solid var(--sl-border);
+    background-color: #ffffff;
+    color: var(--sl-navy);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sl-tab-btn.is-active,
+.sl-tab-btn:hover {
+    background-color: var(--sl-teal-lu);
+    border-color: var(--sl-teal-lu);
+    color: #ffffff;
+}
+
+.sl-tab-panel {
+    font-size: 0.85rem;
+}
+
+/* Logo SozialLëtz.lu à gauche du titre dans le footer */
+.footer-brand-row {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 0.45rem;
+}
+
+.footer-brand-logo {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
